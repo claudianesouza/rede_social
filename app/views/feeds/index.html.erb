@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_feed_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Novo Feed
+  <% end %>
+  <h1>Publicaçoes</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Publicaçao</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @feeds) do |feed| %>
+            <td><%= feed.publicacao %></td>
+            <td><%= link_to 'Exibir', feed %></td>
+        <td><%= link_to 'Editar', edit_feed_path(feed) %></td>
+        <td><%= link_to 'Excluir', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

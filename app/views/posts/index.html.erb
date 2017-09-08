@@ -1,0 +1,38 @@
+<div class="page-header">
+  <%= link_to new_post_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Novo post
+  <% end %>
+  <h1>Lista de posts</h1>
+</div>
+
+<%= content_tag_for(:div, @posts) do |post| %>
+  <div class="media">
+    <div class="media-left media-middle">
+      <a href="#">
+        <img class="media-object" src="http://files.posgr.webnode.com.br/200000000-0dab20e242/default-user.png" height = "70" width = "70" alt="...">
+
+      </a>
+    </div>
+    <div class="media-body row">
+      <div class="col-sm-9">
+      <% if user_signed_in? %>
+            <h4 class="media-heading"><%= current_user.email %></h4>
+          <% else %>
+            <%= link_to "", new_post_path, :class => 'navbar-link' %>
+          <% end %>
+       <div class="col-sm-9"> 
+        <%= post.mensagem %>
+       </div>
+      </div>
+       <div class="col-sm-1">
+          <a class="btn btn-default glyphicon glyphicon-trash"><%= link_to 'Excluir', post, method: :delete, data: { confirm: 'Tem certeza?' } %></a>
+       </div>
+        <div class="col-sm-1">
+          <a class="btn btn-default glyphicon glyphicon-pencil"><%= link_to 'Editar',edit_post_path(post) %></a>
+       </div>
+    </div>
+  </div>
+  <br>
+<% end %>
+

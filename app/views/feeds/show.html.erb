@@ -1,0 +1,17 @@
+<div class="page-header">
+  <%= link_to feeds_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Voltar
+  <% end %>
+  <%= link_to edit_feed_path(@feed), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Exibir feed</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Publicacao:</dt>
+  <dd><%= @feed.publicacao %></dd>
+
+</dl>
